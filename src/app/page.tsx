@@ -138,7 +138,7 @@ export default function Home() {
                       Large Language Models for Debugging Hypotheses
                     </h3>
                     <p className="text-slate-600">
-                      Research with George Mason University's DevX Research Lab on using LLMs for software debugging
+                      Research with George Mason University&apos;s DevX Research Lab on using LLMs for software debugging
                     </p>
                   </CardContent>
                 </Card>
@@ -156,7 +156,7 @@ export default function Home() {
                       Web Platformer Game
                     </h3>
                     <p className="text-slate-600">
-                      Wouldn't you like to know more?
+                      Wouldn&apos;t you like to know more?
                     </p>
                   </CardContent>
                 </Card>
