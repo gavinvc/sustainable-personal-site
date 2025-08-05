@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#059669" stroke="#047857" stroke-width="2"/>
+  
+  <!-- Plant stem -->
+  <path d="M16 26 C16 26, 16 20, 16 16" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Leaves -->
+  <path d="M16 16 C16 16, 12 12, 8 14 C8 14, 10 18, 16 16" fill="#6ee7b7"/>
+  <path d="M16 16 C16 16, 20 12, 24 14 C24 14, 22 18, 16 16" fill="#34d399"/>
+  <path d="M16 19 C16 19, 12 15, 8 17 C8 17, 10 21, 16 19" fill="#6ee7b7"/>
+  <path d="M16 19 C16 19, 20 15, 24 17 C24 17, 22 21, 16 19" fill="#34d399"/>
+  
+  <!-- Small dot for detail -->
+  <circle cx="16" cy="16" r="1" fill="#047857"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="leaf1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6ee7b7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#34d399;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="leaf2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#34d399;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <circle cx="90" cy="90" r="85" fill="url(#bg)" stroke="#047857" stroke-width="4"/>
+  
+  <!-- Main stem -->
+  <path d="M90 160 C90 160, 90 120, 90 80" stroke="#34d399" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Large leaves -->
+  <path d="M90 80 C90 80, 60 50, 30 60 C30 60, 45 100, 90 80" fill="url(#leaf1)" stroke="#059669" stroke-width="2"/>
+  <path d="M90 80 C90 80, 120 50, 150 60 C150 60, 135 100, 90 80" fill="url(#leaf2)" stroke="#059669" stroke-width="2"/>
+  
+  <!-- Medium leaves -->
+  <path d="M90 100 C90 100, 65 75, 40 85 C40 85, 52 115, 90 100" fill="url(#leaf1)" stroke="#059669" stroke-width="1.5"/>
+  <path d="M90 100 C90 100, 115 75, 140 85 C140 85, 128 115, 90 100" fill="url(#leaf2)" stroke="#059669" stroke-width="1.5"/>
+  
+  <!-- Small leaves -->
+  <path d="M90 120 C90 120, 70 100, 50 108 C50 108, 60 130, 90 120" fill="url(#leaf1)" stroke="#059669" stroke-width="1"/>
+  <path d="M90 120 C90 120, 110 100, 130 108 C130 108, 120 130, 90 120" fill="url(#leaf2)" stroke="#059669" stroke-width="1"/>
+  
+  <!-- Center detail -->
+  <circle cx="90" cy="90" r="4" fill="#047857"/>
+  
+  <!-- Leaf details/veins -->
+  <path d="M55 70 C55 70, 70 75, 85 78" stroke="#059669" stroke-width="1" opacity="0.6"/>
+  <path d="M125 70 C125 70, 110 75, 95 78" stroke="#059669" stroke-width="1" opacity="0.6"/>
+  <path d="M60 95 C60 95, 72 98, 85 100" stroke="#059669" stroke-width="1" opacity="0.4"/>
+  <path d="M120 95 C120 95, 108 98, 95 100" stroke="#059669" stroke-width="1" opacity="0.4"/>
+</svg>
