@@ -264,7 +264,7 @@ export default function Home() {
                       Web Platformer Game
                     </h3>
                     <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
-                      Click to play this interactive platformer game built with Phaser.js!
+                      Click to play this (work in progress) platformer game built with Phaser.js!
                     </p>
                   </CardContent>
                 </Card>
@@ -415,14 +415,44 @@ export default function Home() {
         onClose={() => setIsGameModalOpen(false)}
         title="Web Platformer Game"
       >
-        <div className="w-full h-full rounded-lg overflow-hidden shadow-inner">
-          <iframe
-            src="https://springleaf-lime.vercel.app/"
-            className="w-full h-full border-0"
-            title="Web Platformer Game"
-            allowFullScreen
-            loading="lazy"
-          />
+        <div className="w-full h-full relative">
+          {/* CRT Monitor bezel effect */}
+          <div 
+            className="w-full h-full rounded-lg overflow-hidden relative border-4 border-gray-800 bg-black"
+            style={{
+              boxShadow: `
+                inset 0 0 0 8px #1a1a1a,
+                inset 0 0 0 12px #333,
+                inset 0 0 20px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 255, 65, 0.2)
+              `
+            }}
+          >
+            {/* Screen reflection effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-emerald-500/5 pointer-events-none z-20" />
+            
+            {/* CRT curve simulation */}
+            <div 
+              className="absolute inset-2 rounded-sm overflow-hidden"
+              style={{
+                background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.1) 100%)'
+              }}
+            >
+              <iframe
+                src="https://springleaf-lime.vercel.app/"
+                className="w-full h-full border-0 bg-black"
+                title="Web Platformer Game"
+                allowFullScreen
+                loading="lazy"
+                style={{
+                  filter: 'contrast(1.1) brightness(1.05) saturate(1.1)'
+                }}
+              />
+            </div>
+            
+            {/* Power LED indicator */}
+            <div className="absolute bottom-4 right-4 w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50 z-30" />
+          </div>
         </div>
       </Modal>
     </div>
