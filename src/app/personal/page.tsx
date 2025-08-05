@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowLeft, Mountain, Heart, Music, Camera, MapPin, Calendar } from "lucide-react";
+import { useState } from "react";
 
 const Header = () => {
   return (
@@ -40,6 +41,12 @@ const Header = () => {
 };
 
 export default function Personal() {
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  const handleImageLoad = (imageSrc: string) => {
+    setLoadedImages(prev => new Set(prev).add(imageSrc));
+  };
+
   return (
     <div className="text-slate-900">
       <Header />
@@ -87,7 +94,7 @@ export default function Personal() {
                 title: "Shenandoah National Park",
                 location: "Virginia",
                 date: "Fall 2024+",
-                description: "I've been hiking here since 2016, and recently hiked the Old Rag Mountain loop trail - a challenging hike done with friends",
+                description: "I've been hiking here since 2016, and I recently hiked the Old Rag Mountain loop trail - a challenging hike done with friends",
                 image: "/rag.png"
               },
               {
@@ -114,11 +121,24 @@ export default function Personal() {
               >
                 <Card className="bg-white border-none h-full overflow-hidden group hover:shadow-xl transition-all duration-300">
                   <div className="relative h-48 overflow-hidden">
+                    {/* Fallback gradient background while loading */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br from-emerald-200 to-green-400 transition-opacity duration-500 ${
+                        loadedImages.has(hike.image) ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    />
+                    
+                    {/* Actual image */}
                     <Image
                       src={hike.image}
                       alt={hike.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      className={`object-cover group-hover:scale-105 transition-all duration-300 ${
+                        loadedImages.has(hike.image) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      onLoad={() => handleImageLoad(hike.image)}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     <div className="absolute top-3 right-3 bg-emerald-600 text-white px-2 py-1 rounded-full text-xs font-medium">
                       {hike.date}
@@ -161,27 +181,31 @@ export default function Personal() {
               {[
                 {
                   title: "Cozy Winter Sweater",
-                  description: "Hand-crocheted using sustainable wool yarn",
-                  difficulty: "Advanced",
-                  color: "Forest Green"
+                  description: "Hand-crocheted in free time over a couple months",
+                  difficulty: "Intermediate",
+                  color: "Maroon and white",
+                  image: "/sweater.png"
                 },
                 {
-                  title: "Baby Blanket Set",
-                  description: "Soft cotton baby blanket with matching hat",
-                  difficulty: "Intermediate",
-                  color: "Pastel Yellow"
+                  title: "Sunburst Hat",
+                  description: "Hat crocheted from 5 panels for a friend",
+                  difficulty: "Easy",
+                  color: "White and browns",
+                  image: "/hat.png"
                 },
                 {
                   title: "Market Tote Bag",
-                  description: "Eco-friendly alternative to plastic bags",
-                  difficulty: "Beginner",
-                  color: "Natural Beige"
+                  description: "Fashionable, eco-friendly alternative to plastic bags",
+                  difficulty: "Advanced",
+                  color: "Yellow, blue, and white",
+                  image: "/bag.png"
                 },
                 {
                   title: "Amigurumi Animals",
-                  description: "Cute crocheted stuffed animals collection",
+                  description: "Crochet frog gifts for friends",
                   difficulty: "Intermediate",
-                  color: "Various"
+                  color: "Various",
+                  image: "/frog.png"
                 }
               ].map((project, index) => (
                 <motion.div
@@ -191,10 +215,28 @@ export default function Personal() {
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="bg-emerald-50 border-none h-full group hover:shadow-lg transition-all duration-300">
+                  <Card className="bg-emerald-50 border-none h-full group hover:shadow-lg transition-all duration-300 overflow-hidden">
                     <CardContent className="p-6">
-                      <div className="w-full h-32 bg-gradient-to-br from-emerald-200 to-green-300 rounded-lg mb-4 flex items-center justify-center">
-                        <span className="text-4xl">🧶</span>
+                      <div className="relative w-full aspect-square rounded-lg mb-4 overflow-hidden bg-white">
+                        {/* Fallback gradient background while loading */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br from-emerald-200 to-green-300 transition-opacity duration-500 ${
+                            loadedImages.has(project.image) ? 'opacity-0' : 'opacity-100'
+                          }`}
+                        />
+                        
+                        {/* Actual image */}
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          loading="lazy"
+                          className={`object-cover group-hover:scale-105 transition-all duration-300 ${
+                            loadedImages.has(project.image) ? 'opacity-100' : 'opacity-0'
+                          }`}
+                          onLoad={() => handleImageLoad(project.image)}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        />
                       </div>
                       <h3 className="text-lg font-semibold mb-2 text-emerald-800">{project.title}</h3>
                       <p className="text-slate-600 text-sm mb-3">{project.description}</p>
@@ -231,22 +273,23 @@ export default function Personal() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+              {/* Text Content - Takes up 2/3 of the width */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
+                className="lg:col-span-2"
               >
                 <Card className="bg-white border-none h-full">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-semibold mb-4 text-emerald-800">Current Favorites</h3>
-                    <div className="space-y-4">
+                    <h3 className="text-2xl font-semibold mb-6 text-emerald-800">Current Favorites</h3>
+                    <div className="space-y-4 mb-8">
                       {[
-                        { genre: "Indie Folk", artists: "Bon Iver, Fleet Foxes, Iron & Wine" },
-                        { genre: "Electronic", artists: "ODESZA, Tycho, Emancipator" },
-                        { genre: "Classical", artists: "Ludovico Einaudi, Max Richter" },
-                        { genre: "Alternative", artists: "Radiohead, Arctic Monkeys, Tame Impala" }
+                        { genre: "Indie", artists: "Nilüfer Yanya, Indigo De Souza, Flipturn, Spacey Jane, The Backseat Lovers" },
+                        { genre: "Alternative Pop", artists: "Sarah Kinsley, Spill Tab, Rachel Chinouriri, Lorde" },
+                        { genre: "And more", artists: "Saya Gray, Doechii, Ethel Cain" },
                       ].map((music, index) => (
                         <div key={music.genre} className="border-l-4 border-emerald-300 pl-4">
                           <h4 className="font-semibold text-emerald-700">{music.genre}</h4>
@@ -254,83 +297,73 @@ export default function Personal() {
                         </div>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white border-none h-full">
-                  <CardContent className="p-8">
                     <h3 className="text-2xl font-semibold mb-4 text-emerald-800">Musical Experiences</h3>
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
                         <Calendar className="h-5 w-5 text-emerald-600 mt-1" />
                         <div>
                           <p className="font-medium text-slate-700">Concert Memories</p>
-                          <p className="text-sm text-slate-600">Live performances that left lasting impressions</p>
+                          <p className="text-sm text-slate-600">Live performances like Rachel Chinouriri (pictured), Flipturn, Lorde, and local Charlottesville bands</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <Music className="h-5 w-5 text-emerald-600 mt-1" />
                         <div>
-                          <p className="font-medium text-slate-700">Coding Playlists</p>
-                          <p className="text-sm text-slate-600">Curated music for deep focus sessions</p>
+                          <p className="font-medium text-slate-700">Piano</p>
+                          <p className="text-sm text-slate-600">I have been practicing and learning piano in my own time since 2018</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <Heart className="h-5 w-5 text-emerald-600 mt-1" />
                         <div>
-                          <p className="font-medium text-slate-700">Vinyl Collection</p>
-                          <p className="text-sm text-slate-600">Building a sustainable music library</p>
+                          <p className="font-medium text-slate-700">Guitar</p>
+                          <p className="text-sm text-slate-600">I am in the midst of teaching myself guitar - how successful I am is still to be seen...</p>
                         </div>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
-            </div>
-          </div>
-        </section>
 
-        {/* Fun Facts Section */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-bold text-emerald-800 mb-8">
-                🌟 Fun Facts About Me
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  "I believe sustainable living starts with small daily choices",
-                  "My favorite hiking snack is homemade trail mix",
-                  "I learned to crochet from YouTube during the pandemic",
-                  "Music helps me solve coding problems more creatively",
-                  "I&apos;m working towards visiting all US National Parks",
-                  "Every crochet project I make uses eco-friendly yarn"
-                ].map((fact, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="bg-emerald-50 p-4 rounded-lg border-l-4 border-emerald-300"
-                  >
-                    <p className="text-slate-700">{fact}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+              {/* Concert Image - Takes up 1/3 of the width */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="lg:col-span-1"
+              >
+                <Card className="bg-white border-none h-full overflow-hidden">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    {/* Fallback gradient background while loading */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br from-emerald-200 to-green-400 transition-opacity duration-500 ${
+                        loadedImages.has('/concert.png') ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    />
+                    
+                    {/* Concert image */}
+                    <Image
+                      src="/concert.png"
+                      alt="Concert experience"
+                      fill
+                      loading="lazy"
+                      className={`object-cover transition-all duration-300 ${
+                        loadedImages.has('/concert.png') ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      onLoad={() => handleImageLoad('/concert.png')}
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </div>
+                  <CardContent className="p-4">
+                    <p className="text-sm text-slate-600 text-center">
+                      Rachel Chinouriri at the 9:30 Club in DC
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
