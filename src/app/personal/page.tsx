@@ -198,7 +198,7 @@ export default function Personal() {
               {
                 title: "Smoky Mountains National Park",
                 location: "Tennessee/North Carolina",
-                date: "Summer 2024",
+                date: "Spring 2025",
                 description: "Multiple hikes across the Smoky Mountains, most scenic being the Mount LeConte trail",
                 image: "/smokies.png"
               },
