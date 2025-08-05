@@ -19,6 +19,7 @@ const Header = () => {
         <Link href="/" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">Home</Link>
         <Link href="/#about" className="hover:text-emerald-700 transition-colors">About</Link>
         <Link href="/#projects" className="hover:text-emerald-700 transition-colors">Projects</Link>
+        <Link href="/#skills" className="hover:text-emerald-700 transition-colors">Skills</Link>
         <Link href="/#contact" className="hover:text-emerald-700 transition-colors">Contact</Link>
         <span className="text-emerald-600 border-b-2 border-emerald-600 pb-1">Personal</span>
         <a href="https://www.linkedin.com/in/gavin-crigger-58257b25b/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">LinkedIn ↗</a>
@@ -70,93 +71,6 @@ export default function Personal() {
       </section>
 
       <main className="bg-emerald-50">
-        {/* Hiking Adventures Section */}
-        <section className="py-20 px-6 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold text-emerald-800 mb-4 flex items-center justify-center gap-3">
-              <Mountain className="h-8 w-8" />
-              🥾 Hiking Adventures
-            </h2>
-            <p className="text-lg text-slate-600">
-              Exploring nature&apos;s beauty, one trail at a time
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Shenandoah National Park",
-                location: "Virginia",
-                date: "Fall 2024+",
-                description: "I've been hiking here since 2016, and I recently hiked the Old Rag Mountain loop trail - a challenging hike done with friends",
-                image: "/rag.png"
-              },
-              {
-                title: "Smoky Mountains National Park",
-                location: "Tennessee/North Carolina",
-                date: "Summer 2024",
-                description: "Multiple hikes across the Smoky Mountains, most scenic being the Mount LeConte trail",
-                image: "/smokies.png"
-              },
-              {
-                title: "Pictured Rocks National Lakeshore",
-                location: "Michigan",
-                date: "Summer 2025",
-                description: "Incredible hikes along the Lake Superior coastline, with unique rock formations and beautiful weather",
-                image: "/superior.png"
-              }
-            ].map((hike, index) => (
-              <motion.div
-                key={hike.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-white border-none h-full overflow-hidden group hover:shadow-xl transition-all duration-300">
-                  <div className="relative h-48 overflow-hidden">
-                    {/* Fallback gradient background while loading */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br from-emerald-200 to-green-400 transition-opacity duration-500 ${
-                        loadedImages.has(hike.image) ? 'opacity-0' : 'opacity-100'
-                      }`}
-                    />
-                    
-                    {/* Actual image */}
-                    <Image
-                      src={hike.image}
-                      alt={hike.title}
-                      fill
-                      loading="lazy"
-                      className={`object-cover group-hover:scale-105 transition-all duration-300 ${
-                        loadedImages.has(hike.image) ? 'opacity-100' : 'opacity-0'
-                      }`}
-                      onLoad={() => handleImageLoad(hike.image)}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute top-3 right-3 bg-emerald-600 text-white px-2 py-1 rounded-full text-xs font-medium">
-                      {hike.date}
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-emerald-800 flex items-center gap-2">
-                      <MapPin className="h-4 w-4" />
-                      {hike.title}
-                    </h3>
-                    <p className="text-emerald-600 text-sm font-medium mb-3">{hike.location}</p>
-                    <p className="text-slate-600">{hike.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </section>
 
         {/* Crochet Projects Section */}
         <section className="py-20 px-6 bg-white">
@@ -251,6 +165,94 @@ export default function Personal() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Hiking Adventures Section */}
+        <section className="py-20 px-6 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-emerald-800 mb-4 flex items-center justify-center gap-3">
+              <Mountain className="h-8 w-8" />
+              🥾 Hiking Adventures
+            </h2>
+            <p className="text-lg text-slate-600">
+              Exploring nature&apos;s beauty, one trail at a time
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Shenandoah National Park",
+                location: "Virginia",
+                date: "Fall 2024+",
+                description: "I've been hiking here since 2016, and I recently hiked the Old Rag Mountain loop trail - a challenging hike done with friends",
+                image: "/rag.png"
+              },
+              {
+                title: "Smoky Mountains National Park",
+                location: "Tennessee/North Carolina",
+                date: "Summer 2024",
+                description: "Multiple hikes across the Smoky Mountains, most scenic being the Mount LeConte trail",
+                image: "/smokies.png"
+              },
+              {
+                title: "Pictured Rocks National Lakeshore",
+                location: "Michigan",
+                date: "Summer 2025",
+                description: "Incredible hikes along the Lake Superior coastline, with unique rock formations and beautiful weather",
+                image: "/superior.png"
+              }
+            ].map((hike, index) => (
+              <motion.div
+                key={hike.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-white border-none h-full overflow-hidden group hover:shadow-xl transition-all duration-300">
+                  <div className="relative h-48 overflow-hidden">
+                    {/* Fallback gradient background while loading */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br from-emerald-200 to-green-400 transition-opacity duration-500 ${
+                        loadedImages.has(hike.image) ? 'opacity-0' : 'opacity-100'
+                      }`}
+                    />
+                    
+                    {/* Actual image */}
+                    <Image
+                      src={hike.image}
+                      alt={hike.title}
+                      fill
+                      loading="lazy"
+                      className={`object-cover group-hover:scale-105 transition-all duration-300 ${
+                        loadedImages.has(hike.image) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      onLoad={() => handleImageLoad(hike.image)}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute top-3 right-3 bg-emerald-600 text-white px-2 py-1 rounded-full text-xs font-medium">
+                      {hike.date}
+                    </div>
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-emerald-800 flex items-center gap-2">
+                      <MapPin className="h-4 w-4" />
+                      {hike.title}
+                    </h3>
+                    <p className="text-emerald-600 text-sm font-medium mb-3">{hike.location}</p>
+                    <p className="text-slate-600">{hike.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </section>
 

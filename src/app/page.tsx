@@ -186,25 +186,27 @@ export default function Home() {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-emerald-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
-                    <Image
-                      src="/window.svg"
-                      alt="Network Security Tool"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6 relative z-30">
-                    <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
-                      Enterprise Network Security Research Tool
-                    </h3>
-                    <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
-                      Built in .NET framework, confidential Epic application for network traffic monitoring and analysis
-                    </p>
-                  </CardContent>
-                </Card>
+                <a href="https://www.epic.com/" target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-emerald-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
+                      <Image
+                        src="/window.svg"
+                        alt="Network Security Tool"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6 relative z-30">
+                      <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
+                        Enterprise Network Security Research Tool
+                      </h3>
+                      <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
+                        Built in .NET framework, confidential Epic application for network traffic monitoring and analysis
+                      </p>
+                    </CardContent>
+                  </Card>
+                </a>
               </motion.div>
 
               <motion.div
@@ -213,25 +215,27 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
-                    <Image
-                      src="/globe.svg"
-                      alt="LLM Research"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6 relative z-30">
-                    <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
-                      Large Language Models for Debugging Hypotheses
-                    </h3>
-                    <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
-                      Research with George Mason University&apos;s DevX Research Lab on using LLMs for software debugging
-                    </p>
-                  </CardContent>
-                </Card>
+                <a href="https://journals.gmu.edu/index.php/jssr/article/view/3895" target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
+                      <Image
+                        src="/globe.svg"
+                        alt="LLM Research"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6 relative z-30">
+                      <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
+                        Large Language Models for Debugging Hypotheses
+                      </h3>
+                      <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
+                        Research with George Mason University&apos;s DevX Research Lab on using LLMs for software debugging
+                      </p>
+                    </CardContent>
+                  </Card>
+                </a>
               </motion.div>
 
               <motion.div
