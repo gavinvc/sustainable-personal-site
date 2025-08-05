@@ -21,7 +21,7 @@ const Header = () => {
         <a href="#skills" className="hover:text-emerald-700 transition-colors">Skills</a>
         <a href="#contact" className="hover:text-emerald-700 transition-colors">Contact</a>
         <Link href="/personal" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">Personal</Link>
-        <a href="https://www.linkedin.com/in/gavin-crigger-58257b25b/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">LinkedIn ↗</a>
+        <a href="https://www.linkedin.com/in/gavin-crigger" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">LinkedIn ↗</a>
       </nav>
       {/* Mobile Navigation */}
       <nav className="md:hidden flex flex-col space-y-1 text-xs text-slate-700 font-medium text-right">
