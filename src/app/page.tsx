@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Modal } from "@/components/ui/modal";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -42,6 +43,7 @@ const Header = () => {
 
 export default function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [isGameModalOpen, setIsGameModalOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -244,7 +246,10 @@ export default function Home() {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
+                <Card 
+                  className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative"
+                  onClick={() => setIsGameModalOpen(true)}
+                >
                   <div className="absolute inset-0 bg-gradient-to-br from-orange-600 to-red-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
                     <Image
@@ -259,7 +264,7 @@ export default function Home() {
                       Web Platformer Game
                     </h3>
                     <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
-                      Wouldn&apos;t you like to know more?
+                      Click to play this interactive platformer game built with Phaser.js!
                     </p>
                   </CardContent>
                 </Card>
@@ -403,6 +408,23 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Game Modal */}
+      <Modal 
+        isOpen={isGameModalOpen} 
+        onClose={() => setIsGameModalOpen(false)}
+        title="Web Platformer Game"
+      >
+        <div className="w-full h-full rounded-lg overflow-hidden shadow-inner">
+          <iframe
+            src="https://springleaf-lime.vercel.app/"
+            className="w-full h-full border-0"
+            title="Web Platformer Game"
+            allowFullScreen
+            loading="lazy"
+          />
+        </div>
+      </Modal>
     </div>
   );
 }
