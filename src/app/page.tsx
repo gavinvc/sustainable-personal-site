@@ -47,14 +47,26 @@ export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Immediately start preloading the background image
+    const img = new window.Image();
+    img.onload = () => setImageLoaded(true);
+    img.src = '/background.png';
+
+    // Preload other critical images
+    const criticalImages = ['/gavin.png'];
+    criticalImages.forEach((src) => {
+      const preloadImg = new window.Image();
+      preloadImg.src = src;
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !imageLoaded) {
-            // Preload the image
-            const img = new window.Image();
-            img.onload = () => setImageLoaded(true);
-            img.src = '/background.png';
+            // Background image should already be loading from above
+            const fallbackImg = new window.Image();
+            fallbackImg.onload = () => setImageLoaded(true);
+            fallbackImg.src = '/background.png';
           }
         });
       },
@@ -80,13 +92,14 @@ export default function Home() {
             >
   {/* Background image layer */}
   <div
-    className={`absolute inset-0 bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-500 ${
+    className={`absolute inset-0 bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-500 will-change-[opacity] ${
       imageLoaded ? 'opacity-100' : 'opacity-0'
     }`}
     style={{
       backgroundImage: imageLoaded ? `url('/background.png')` : 'none',
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
+      transform: 'translateZ(0)', // Force GPU acceleration
     }}
   />
   
@@ -160,6 +173,7 @@ export default function Home() {
                 alt="Gavin Crigger"
                 width={300}
                 height={400}
+                priority
                 className="rounded-lg shadow-lg object-cover"
               />
             </motion.div>

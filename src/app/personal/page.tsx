@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Carousel } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { ArrowLeft, Mountain, Heart, Music, Camera, MapPin, Calendar } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   return (
@@ -44,6 +44,21 @@ const Header = () => {
 
 export default function Personal() {
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  // Preload critical images on component mount
+  useEffect(() => {
+    const criticalImages = [
+      '/sweater.png', '/hat.png', '/bag.png', '/frog.png',
+      '/rag.png', '/smokies.png', '/superior.png',
+      '/flipturn.png', '/guitar.png', '/rachel.png'
+    ];
+    
+    criticalImages.forEach((src) => {
+      const img = new window.Image();
+      img.onload = () => handleImageLoad(src);
+      img.src = src;
+    });
+  }, []);
 
   const handleImageLoad = (imageSrc: string) => {
     setLoadedImages(prev => new Set(prev).add(imageSrc));
@@ -145,7 +160,8 @@ export default function Personal() {
                           src={project.image}
                           alt={project.title}
                           fill
-                          loading="lazy"
+                          loading={index < 4 ? "eager" : "lazy"}
+                          priority={index === 0}
                           className={`object-cover group-hover:scale-105 transition-all duration-300 ${
                             loadedImages.has(project.image) ? 'opacity-100' : 'opacity-0'
                           }`}
@@ -232,7 +248,8 @@ export default function Personal() {
                       src={hike.image}
                       alt={hike.title}
                       fill
-                      loading="lazy"
+                      loading={index < 3 ? "eager" : "lazy"}
+                      priority={index === 0}
                       className={`object-cover group-hover:scale-105 transition-all duration-300 ${
                         loadedImages.has(hike.image) ? 'opacity-100' : 'opacity-0'
                       }`}

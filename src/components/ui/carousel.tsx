@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -21,6 +21,15 @@ interface CarouselProps {
 export const Carousel = ({ items, className = '', autoPlay = false, autoPlayInterval = 3000 }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+
+  // Preload all images on component mount
+  useEffect(() => {
+    items.forEach((item) => {
+      const img = new window.Image();
+      img.onload = () => handleImageLoad(item.src);
+      img.src = item.src;
+    });
+  }, [items]);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
@@ -69,7 +78,8 @@ export const Carousel = ({ items, className = '', autoPlay = false, autoPlayInte
                 src={items[currentIndex].src}
                 alt={items[currentIndex].alt}
                 fill
-                loading="lazy"
+                loading="eager"
+                priority={currentIndex === 0}
                 className={`object-cover transition-all duration-300 ${
                   loadedImages.has(items[currentIndex].src) ? 'opacity-100' : 'opacity-0'
                 }`}
