@@ -103,6 +103,25 @@ export default function Home() {
     <p className="text-lg md:text-xl">Software Developer and Cybersecurity Student</p>
   </div>
 
+  {/* Resume Notification Blurb */}
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 2.0, duration: 0.8 }}
+    className="absolute bottom-20 right-6 z-30"
+  >
+    <a 
+      href="/Gavin Crigger Resume 2025.pdf" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="group flex items-center gap-2 bg-blue-600/90 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700/90 transition-all duration-300 shadow-lg hover:shadow-xl border border-blue-500/30"
+    >
+      <span className="text-blue-200">📄</span>
+      <span>View my resume</span>
+      <Sparkles className="h-3 w-3 opacity-70 group-hover:opacity-100 transition-opacity" />
+    </a>
+  </motion.div>
+
   {/* Personal Life Notification Blurb */}
   <motion.div
     initial={{ opacity: 0, x: 20 }}
@@ -400,9 +419,16 @@ export default function Home() {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Button className="mt-4 flex items-center gap-2 mx-auto bg-emerald-600 hover:bg-emerald-700">
-                  <Sparkles className="h-4 w-4" /> View Resume
-                </Button>
+                <a 
+                  href="/Gavin Crigger Resume 2025.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block"
+                >
+                  <Button className="mt-4 flex items-center gap-2 mx-auto bg-emerald-600 hover:bg-emerald-700">
+                    <Sparkles className="h-4 w-4" /> View Resume
+                  </Button>
+                </a>
               </motion.div>
             </motion.div>
           </div>
