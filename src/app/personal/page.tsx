@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import { ArrowLeft, Mountain, Heart, Music, Camera, MapPin, Calendar } from "lucide-react";
 import { useState } from "react";
@@ -328,41 +329,36 @@ export default function Personal() {
                 </Card>
               </motion.div>
 
-              {/* Concert Image - Takes up 1/3 of the width */}
+              {/* Music Carousel - Takes up 1/3 of the width */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="lg:col-span-1"
+                className="lg:col-span-1 h-full"
               >
-                <Card className="bg-white border-none h-full overflow-hidden">
-                  <div className="relative aspect-[4/5] overflow-hidden">
-                    {/* Fallback gradient background while loading */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br from-emerald-200 to-green-400 transition-opacity duration-500 ${
-                        loadedImages.has('/concert.png') ? 'opacity-0' : 'opacity-100'
-                      }`}
-                    />
-                    
-                    {/* Concert image */}
-                    <Image
-                      src="/concert.png"
-                      alt="Concert experience"
-                      fill
-                      loading="lazy"
-                      className={`object-cover transition-all duration-300 ${
-                        loadedImages.has('/concert.png') ? 'opacity-100' : 'opacity-0'
-                      }`}
-                      onLoad={() => handleImageLoad('/concert.png')}
-                      sizes="(max-width: 1024px) 100vw, 33vw"
+                <Card className="bg-white border-none h-full overflow-hidden flex flex-col">
+                  <div className="flex-1">
+                    <Carousel
+                      items={[
+                        {
+                          src: "/flipturn.png",
+                          alt: "Flipturn concert",
+                          caption: "Flipturn live at Ting Pavilion in Charlottesville"
+                        },
+                        {
+                          src: "/guitar.png",
+                          alt: "Guitar practice",
+                          caption: "Learning guitar in my free time"
+                        },
+                        {
+                          src: "/rachel.png",
+                          alt: "Rachel Chinouriri concert",
+                          caption: "Rachel Chinouriri at the 9:30 Club in DC"
+                        }
+                      ]}
                     />
                   </div>
-                  <CardContent className="p-4">
-                    <p className="text-sm text-slate-600 text-center">
-                      Rachel Chinouriri at the 9:30 Club in DC
-                    </p>
-                  </CardContent>
                 </Card>
               </motion.div>
             </div>

@@ -101,6 +101,7 @@ export default function Home() {
   <div className="relative z-20 text-white text-left px-4 max-w-2xl">
     <h1 className="text-3xl md:text-5xl font-bold mb-2 md:mb-4">Gavin Crigger</h1>
     <p className="text-lg md:text-xl">Software Developer and Cybersecurity Student</p>
+    <p className="text-lg md:text-xl">Sustainability Enthusiast</p>
   </div>
 
   {/* Resume Notification Blurb */}
