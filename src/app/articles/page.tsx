@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -86,10 +87,11 @@ export default function Articles() {
                   <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                     {/* Image Section */}
                     <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
-                      <img 
+                      <Image 
                         src="/gmu.jpg" 
                         alt="George Mason University campus" 
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     </div>
                     
@@ -156,10 +158,11 @@ export default function Articles() {
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                     {/* Image section */}
                     <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
-                        <img 
+                        <Image 
                         src="/crzw.png" 
                         alt="Campus Race to Zero Waste logo" 
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                         />
                     </div>
 
@@ -186,7 +189,7 @@ export default function Articles() {
                         </div>
 
                         <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                            My 2024 case study outlines UVA's Race to Zero Waste strategy, focused on zero-waste Green Games that expanded composting and volunteer engagement. Over 66,000 lbs of waste were diverted through the dedication of hardworking staff, volunteers from student organizations, and local residents.
+                            My 2024 case study outlines UVA&apos;s Race to Zero Waste strategy, focused on zero-waste Green Games that expanded composting and volunteer engagement. Over 66,000 lbs of waste were diverted through the dedication of hardworking staff, volunteers from student organizations, and local residents.
                         </p>
 
                         <div className="flex flex-wrap gap-2 mb-6">
@@ -223,10 +226,11 @@ export default function Articles() {
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                     {/* Image section */}
                     <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
-                        <img 
+                        <Image 
                           src="/gardening.png" 
                           alt="Gavin Crigger watering a bed of plants" 
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
                         />
                     </div>
 
@@ -290,10 +294,11 @@ export default function Articles() {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                 {/* Image section */}
                 <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
-                    <img 
+                    <Image 
                       src="/greengame.jpg" 
                       alt="Student volunteers at a Green Game event" 
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                 </div>
 
@@ -356,10 +361,11 @@ export default function Articles() {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
                 {/* Image section */}
                 <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
-                    <img 
+                    <Image 
                       src="/paris.png" 
                       alt="Gavin Crigger and Aliza Diop smiling" 
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                 </div>
 
