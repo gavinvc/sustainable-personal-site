@@ -18,24 +18,19 @@ const Header = () => {
       {/* Desktop Navigation */}
       <nav className="hidden md:flex space-x-6 text-slate-700 font-medium">
         <Link href="/" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">Home</Link>
-        <Link href="/#about" className="hover:text-emerald-700 transition-colors">About</Link>
-        <Link href="/#projects" className="hover:text-emerald-700 transition-colors">Projects</Link>
-        <Link href="/#skills" className="hover:text-emerald-700 transition-colors">Skills</Link>
-        <Link href="/#contact" className="hover:text-emerald-700 transition-colors">Contact</Link>
+        <Link href="/articles" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">Articles</Link>
         <span className="text-emerald-600 border-b-2 border-emerald-600 pb-1">Personal</span>
+        <Link href="/personal#crochet" className="hover:text-emerald-700 transition-colors">Crochet</Link>
+        <Link href="/personal#hiking" className="hover:text-emerald-700 transition-colors">Hiking</Link>
+        <Link href="/personal#music" className="hover:text-emerald-700 transition-colors">Music</Link>
         <a href="https://www.linkedin.com/in/gavin-crigger-58257b25b/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">LinkedIn ↗</a>
       </nav>
       {/* Mobile Navigation */}
       <nav className="md:hidden flex flex-col space-y-1 text-xs text-slate-700 font-medium text-right">
         <div className="flex space-x-3">
           <Link href="/" className="hover:text-emerald-700 transition-colors">Home</Link>
-          <Link href="/#about" className="hover:text-emerald-700 transition-colors">About</Link>
-          <Link href="/#projects" className="hover:text-emerald-700 transition-colors">Projects</Link>
-        </div>
-        <div className="flex space-x-3">
-          <Link href="/#contact" className="hover:text-emerald-700 transition-colors">Contact</Link>
+          <Link href="/articles" className="hover:text-emerald-700 transition-colors">Articles</Link>
           <span className="text-emerald-600 font-semibold">Personal</span>
-          <a href="https://www.linkedin.com/in/gavin-crigger-58257b25b/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">LinkedIn ↗</a>
         </div>
       </nav>
     </header>
@@ -89,7 +84,7 @@ export default function Personal() {
       <main className="bg-emerald-50">
 
         {/* Crochet Projects Section */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-white crochet" id="crochet">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -186,7 +181,7 @@ export default function Personal() {
         </section>
 
         {/* Hiking Adventures Section */}
-        <section className="py-20 px-6 max-w-6xl mx-auto">
+        <section className="py-20 px-6 max-w-6xl mx-auto hiking" id="hiking">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +270,7 @@ export default function Personal() {
         </section>
 
         {/* Music Section */}
-        <section className="py-20 px-6 bg-emerald-50">
+        <section className="py-20 px-6 bg-emerald-50 music" id="music">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

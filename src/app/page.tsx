@@ -17,24 +17,21 @@ const Header = () => {
       </Link>
       {/* Desktop Navigation */}
       <nav className="hidden md:flex space-x-6 text-slate-700 font-medium">
+        <span className="text-emerald-600 border-b-2 border-emerald-600 pb-1">Home</span>
         <a href="#about" className="hover:text-emerald-700 transition-colors">About</a>
         <a href="#projects" className="hover:text-emerald-700 transition-colors">Projects</a>
         <a href="#skills" className="hover:text-emerald-700 transition-colors">Skills</a>
         <a href="#contact" className="hover:text-emerald-700 transition-colors">Contact</a>
+        <Link href="/articles" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">Articles</Link>
         <Link href="/personal" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">Personal</Link>
         <a href="https://www.linkedin.com/in/gavin-crigger" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors border-b border-emerald-200 hover:border-emerald-400 pb-1">LinkedIn ↗</a>
       </nav>
       {/* Mobile Navigation */}
       <nav className="md:hidden flex flex-col space-y-1 text-xs text-slate-700 font-medium text-right">
         <div className="flex space-x-3">
-          <a href="#about" className="hover:text-emerald-700 transition-colors">About</a>
-          <a href="#projects" className="hover:text-emerald-700 transition-colors">Projects</a>
-          <a href="#skills" className="hover:text-emerald-700 transition-colors">Skills</a>
-        </div>
-        <div className="flex space-x-3">
-          <a href="#contact" className="hover:text-emerald-700 transition-colors">Contact</a>
+          <span className="text-emerald-600 font-semibold">Home</span>
+          <Link href="/articles" className="hover:text-emerald-700 transition-colors">Articles</Link>
           <Link href="/personal" className="hover:text-emerald-700 transition-colors">Personal</Link>
-          <a href="https://www.linkedin.com/in/gavin-crigger-58257b25b/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700 transition-colors">LinkedIn ↗</a>
         </div>
       </nav>
     </header>
