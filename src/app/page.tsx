@@ -188,7 +188,9 @@ export default function Home() {
               <p className="text-lg text-slate-600 leading-relaxed">
                 I&apos;m a fourth year student at the University of Virginia studying
                 computer science with a focus in cybersecurity. I have a passion for sustainability
-                and intern experience in software development for security applications.
+                and intern experience in software development for security applications. In my free time,
+                I enjoy volunteering, crocheting, playing music, and exploring national parks - especially
+                Shenandoah!
               </p>
             </motion.div>
           </div>
