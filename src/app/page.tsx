@@ -212,7 +212,7 @@ export default function Home() {
               </p>
             </motion.div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -275,6 +275,35 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <a href="https://contact-tracing-app-hoo-hacks-ebbcf0aff9f8.herokuapp.com/" target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-600 to-pink-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
+                      <Image
+                        src="/hoossick.png"
+                        alt="Hoos Sick Contact Tracing App"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6 relative z-30">
+                      <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
+                        Hoos Sick
+                      </h3>
+                      <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
+                        Contact tracing application built during a hackathon to help track and prevent disease spread
+                      </p>
+                    </CardContent>
+                  </Card>
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
                 viewport={{ once: true }}
               >
                 <Card 
