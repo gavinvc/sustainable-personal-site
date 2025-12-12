@@ -161,7 +161,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
               viewport={{ once: true }}
               className="flex-shrink-0"
             >
@@ -178,7 +178,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
               viewport={{ once: true }}
               className="flex-1"
             >
@@ -202,7 +202,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
@@ -214,11 +214,11 @@ export default function Home() {
               </p>
             </motion.div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto auto-rows-fr">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
+                transition={{ delay: 0.1, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <a href="https://www.epic.com/" target="_blank" rel="noopener noreferrer" className="block h-full">
@@ -247,7 +247,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <a href="https://journals.gmu.edu/index.php/jssr/article/view/3895" target="_blank" rel="noopener noreferrer" className="block h-full">
@@ -276,7 +276,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <a href="https://contact-tracing-app-hoo-hacks-ebbcf0aff9f8.herokuapp.com/" target="_blank" rel="noopener noreferrer" className="block h-full">
@@ -305,7 +305,36 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.35, duration: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <a href="https://rehooz-app-491933218528.us-east4.run.app/#/home" target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <Card className="bg-green-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-indigo-800 opacity-0 group-hover:opacity-90 transition-opacity duration-300 z-10" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-20">
+                      <Image
+                        src="/bag.png"
+                        alt="Rehooz second-hand fashion marketplace"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <CardContent className="p-6 relative z-30">
+                      <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
+                        Rehooz Second-Hand Fashion Marketplace
+                      </h3>
+                      <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
+                        Group project for UVA&apos;s CS 4750 Database Systems course that powers a curated resale platform deployment.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <Card 
@@ -341,7 +370,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
@@ -364,7 +393,7 @@ export default function Home() {
                   key={skillGroup.category}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
                   viewport={{ once: true }}
                 >
                   <Card className="bg-white border-none h-full">
@@ -393,7 +422,7 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="text-center"
             >
@@ -408,7 +437,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.6 }}
+                  transition={{ delay: 0.1, duration: 0.3 }}
                   viewport={{ once: true }}
                   className="text-center"
                 >
@@ -424,7 +453,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
                   viewport={{ once: true }}
                   className="text-center"
                 >
@@ -442,7 +471,7 @@ export default function Home() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
+                  transition={{ delay: 0.3, duration: 0.3 }}
                   viewport={{ once: true }}
                   className="text-center"
                 >
@@ -459,7 +488,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <a 

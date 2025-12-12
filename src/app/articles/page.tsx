@@ -62,7 +62,7 @@ export default function Articles() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
@@ -76,11 +76,79 @@ export default function Articles() {
             </motion.div>
 
             <div className="space-y-8">
+              {/* Article - CS 6762 Final Project Report */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
+                    {/* Image Section */}
+                    <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
+                      <Image
+                        src="/file.svg"
+                        alt="Signal processing project icon"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="lg:col-span-3">
+                      <CardContent className="p-8">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="flex-1">
+                            <h3 className="text-2xl font-semibold mb-3 text-emerald-800 group-hover:text-emerald-700 transition-colors">
+                              CS 6762 Final Project Report — Smartwatch Habit Detection
+                            </h3>
+                            <div className="flex items-center gap-4 text-sm text-slate-600 mb-4 flex-wrap">
+                              <div className="flex items-center gap-1">
+                                <Calendar className="h-4 w-4" />
+                                <span>December 2025</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Users className="h-4 w-4" />
+                                <span>CS 6762 — Signal Processing, Machine Learning & Control</span>
+                              </div>
+                            </div>
+                          </div>
+                          <ExternalLink className="h-6 w-6 text-emerald-600 group-hover:text-emerald-700 transition-colors flex-shrink-0 mt-1" />
+                        </div>
+
+                        <p className="text-slate-600 mb-6 leading-relaxed text-lg">
+                          Reports on a wearable sensing pipeline I built with fellow UVA Students to encourage better brushing habits. Using integrated smartwatch accelerometer data, sequential feature selection, and a J48 decision tree ported to cascading if-else logic on an Asus ZenWatch, the system identifies brushing intervals with 97% accuracy and triggers positive reinforcement plus reminders.
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {["Signal Processing", "Wearable Tech", "Decision Trees", "Positive Reinforcement"].map((tag) => (
+                            <span key={tag} className="bg-emerald-200 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <a
+                          href="/CS%206762%20Final%20Project%20Report.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                        >
+                          <span>Read Full Report</span>
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      </CardContent>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+
               {/* Article 1 - LLM Debugging Research */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -151,7 +219,7 @@ export default function Articles() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.3 }}
                 viewport={{ once: true }}
                 >
                 <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -219,7 +287,7 @@ export default function Articles() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.3 }}
                 viewport={{ once: true }}
                 >
                 <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -287,7 +355,7 @@ export default function Articles() {
             <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+                transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             >
             <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -354,7 +422,7 @@ export default function Articles() {
             <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             >
             <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -423,7 +491,7 @@ export default function Articles() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <Card className="bg-slate-50 border-2 border-dashed border-slate-300">

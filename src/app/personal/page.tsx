@@ -89,7 +89,7 @@ export default function Personal() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
@@ -137,7 +137,7 @@ export default function Personal() {
                   key={project.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
                   viewport={{ once: true }}
                 >
                   <Card className="bg-emerald-50 border-none h-full group hover:shadow-lg transition-all duration-300 overflow-hidden">
@@ -185,7 +185,7 @@ export default function Personal() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -226,7 +226,7 @@ export default function Personal() {
                 key={hike.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.1, duration: 0.3 }}
                 viewport={{ once: true }}
               >
                 <Card className="bg-white border-none h-full overflow-hidden group hover:shadow-xl transition-all duration-300">
@@ -275,7 +275,7 @@ export default function Personal() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="text-center mb-12"
             >
@@ -293,7 +293,7 @@ export default function Personal() {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.3 }}
                 viewport={{ once: true }}
                 className="lg:col-span-2"
               >
@@ -345,7 +345,7 @@ export default function Personal() {
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.3 }}
                 viewport={{ once: true }}
                 className="lg:col-span-1 h-full"
               >
