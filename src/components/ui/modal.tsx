@@ -47,105 +47,44 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
           <motion.div
             initial={{ 
               opacity: 0, 
-              scale: 0.3, 
-              y: 50,
-              rotateX: -15,
-              filter: "blur(10px)"
+              scale: 0.9, 
+              y: 30
             }}
             animate={{ 
               opacity: 1, 
               scale: 1, 
-              y: 0,
-              rotateX: 0,
-              filter: "blur(0px)"
+              y: 0
             }}
             exit={{ 
               opacity: 0, 
-              scale: 0.8, 
-              y: -20,
-              rotateX: 15,
-              filter: "blur(5px)"
+              scale: 0.96, 
+              y: -20
             }}
             transition={{ 
               type: "spring",
-              damping: 20,
-              stiffness: 300,
-              duration: 0.6
+              damping: 18,
+              stiffness: 220,
+              duration: 0.45
             }}
-            className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 w-[95vw] h-[95vh] max-w-7xl flex flex-col shadow-2xl"
-            style={{
-              borderRadius: '12px',
-              border: '4px solid',
-              borderImage: 'linear-gradient(45deg, #00ff41, #ff0080, #00bfff, #ffff00) 1',
-              boxShadow: `
-                0 0 0 4px #000,
-                0 0 0 8px #333,
-                0 0 20px rgba(0, 255, 65, 0.5),
-                0 0 40px rgba(255, 0, 128, 0.3),
-                0 0 60px rgba(0, 191, 255, 0.2),
-                inset 0 0 20px rgba(255, 255, 255, 0.1)
-              `
-            }}
+            className="relative w-[95vw] h-[95vh] max-w-6xl flex flex-col rounded-2xl shadow-2xl bg-gradient-to-br from-amber-50 via-stone-50 to-emerald-50 border border-amber-100"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b-4 border-emerald-400 bg-gradient-to-r from-slate-800 to-slate-700 relative overflow-hidden">
-              {/* Retro grid pattern overlay */}
-              <div className="absolute inset-0 opacity-10">
-                <div 
-                  className="w-full h-full"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(rgba(0,255,65,0.3) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(0,255,65,0.3) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '20px 20px'
-                  }}
-                />
-              </div>
-              
-              {/* Animated corner decorations */}
-              <div className="absolute top-0 left-0 w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 transform rotate-45 -translate-x-2 -translate-y-2" />
-              <div className="absolute top-0 right-0 w-4 h-4 bg-gradient-to-bl from-pink-400 to-purple-500 transform rotate-45 translate-x-2 -translate-y-2" />
-              <div className="absolute bottom-0 left-0 w-4 h-4 bg-gradient-to-tr from-blue-400 to-cyan-500 transform rotate-45 -translate-x-2 translate-y-2" />
-              <div className="absolute bottom-0 right-0 w-4 h-4 bg-gradient-to-tl from-green-400 to-emerald-500 transform rotate-45 translate-x-2 translate-y-2" />
-              
-              <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-pink-400 relative z-10 font-mono tracking-wider">
-                🎮 {title}
+            <div className="flex items-center justify-between gap-4 p-5 border-b border-amber-100 bg-gradient-to-r from-amber-50 via-stone-50 to-emerald-50">
+              <h2 className="text-lg font-semibold text-stone-900 tracking-tight">
+                {title}
               </h2>
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-red-600/20 rounded-lg transition-all duration-200 border-2 border-red-400/50 hover:border-red-400 bg-red-900/30 relative z-10 group"
+                className="p-2 rounded-full bg-white/80 text-stone-600 hover:text-stone-900 hover:bg-white shadow-sm transition-all"
                 aria-label="Close modal"
               >
-                <X className="h-5 w-5 text-red-400 group-hover:text-red-300 transition-colors" />
+                <X className="h-5 w-5" />
               </button>
             </div>
-            
+
             {/* Content */}
-            <div className="flex-1 p-4 overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 relative">
-              {/* Scanline effect */}
-              <div 
-                className="absolute inset-0 pointer-events-none opacity-30"
-                style={{
-                  background: `
-                    repeating-linear-gradient(
-                      0deg,
-                      transparent,
-                      transparent 2px,
-                      rgba(0, 255, 65, 0.03) 2px,
-                      rgba(0, 255, 65, 0.03) 4px
-                    )
-                  `
-                }}
-              />
-              
-              {/* Corner frame elements */}
-              <div className="absolute top-2 left-2 w-8 h-8 border-l-4 border-t-4 border-emerald-400" />
-              <div className="absolute top-2 right-2 w-8 h-8 border-r-4 border-t-4 border-pink-400" />
-              <div className="absolute bottom-2 left-2 w-8 h-8 border-l-4 border-b-4 border-cyan-400" />
-              <div className="absolute bottom-2 right-2 w-8 h-8 border-r-4 border-b-4 border-yellow-400" />
-              
-              <div className="relative z-10 w-full h-full">
+            <div className="flex-1 p-5 overflow-hidden bg-gradient-to-br from-white via-amber-50 to-emerald-50">
+              <div className="w-full h-full rounded-xl bg-white/70 backdrop-blur-sm border border-amber-100 shadow-inner p-4 overflow-auto">
                 {children}
               </div>
             </div>

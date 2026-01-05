@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Modal } from "@/components/ui/modal";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ExternalLink, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
@@ -41,6 +41,7 @@ const Header = () => {
 export default function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isGameModalOpen, setIsGameModalOpen] = useState(false);
+  const [isCrochetModalOpen, setIsCrochetModalOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -215,6 +216,38 @@ export default function Home() {
             </motion.div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto auto-rows-fr">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05, duration: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <Card 
+                  className="bg-gradient-to-br from-emerald-100 via-white to-amber-100 border-none h-full cursor-pointer group hover:shadow-xl transition-all duration-300 overflow-hidden relative"
+                  onClick={() => setIsCrochetModalOpen(true)}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-amber-600 opacity-0 group-hover:opacity-95 transition-opacity duration-300 z-10" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-20">
+                    <Image
+                      src="/crochet-companion.png"
+                      alt="Crochet Companion preview"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
+                    />
+                  </div>
+                  <CardContent className="p-6 relative z-30">
+                    <h3 className="text-xl font-semibold mb-3 text-emerald-800 group-hover:text-white transition-colors duration-300">
+                      Crochet Companion
+                    </h3>
+                    <p className="text-slate-600 group-hover:text-white transition-colors duration-300">
+                      Full-stack MongoDB + Express API with an Angular client for parsing, sharing, and walking through crochet patterns with LLM-assisted PDF/URL/text ingestion, maker progress saves, and community features.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -506,6 +539,82 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Crochet Companion Modal */}
+      <Modal 
+        isOpen={isCrochetModalOpen} 
+        onClose={() => setIsCrochetModalOpen(false)}
+        title="Crochet Companion"
+      >
+        <div className="flex flex-col gap-6 h-full overflow-auto p-4 md:p-6">
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-700/30 px-3 py-1 text-sm font-semibold text-emerald-100">
+                🧶 LLM-assisted crochet companion
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-slate-700/40 px-3 py-1 text-xs text-emerald-100">
+                MongoDB • Express • Angular • Node.js
+              </span>
+            </div>
+            <p className="text-stone-800 leading-relaxed">
+              Full-stack project that parses PDFs, URLs, and text-based crochet patterns with LLM help, lets makers follow row-by-row playback, and saves their progress. Community features include pattern sharing, images, follow/unfollow, and deletion controls for owners.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
+                <a href="https://github.com/gavinvc/crochet-companion" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                  GitHub Repo
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild variant="secondary" className="bg-slate-100 text-slate-900 hover:bg-white">
+                <a href="https://crochet-companion-git-main-gavin-criggers-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                  View Live Page
+                  <ExternalLink className="h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+            <div className="grid gap-3 md:grid-cols-2">
+              <Card className="bg-white border-amber-100 shadow-sm">
+                <CardContent className="p-4 space-y-2 text-stone-800">
+                  <h4 className="text-sm font-semibold text-emerald-700">Highlights</h4>
+                  <ul className="list-disc pl-5 space-y-1 text-sm">
+                    <li>Row-by-row playback with maker progress saves and sample patterns baked in.</li>
+                    <li>LLM parser with local-first Ollama gateway plus optional Hugging Face fallback.</li>
+                    <li>Community feed for sharing, following/unfollowing, and owner-only deletes.</li>
+                  </ul>
+                </CardContent>
+              </Card>
+              <Card className="bg-white border-amber-100 shadow-sm">
+                <CardContent className="p-4 space-y-2 text-stone-800">
+                  <h4 className="text-sm font-semibold text-emerald-700">Quick start</h4>
+                  <ul className="list-disc pl-5 space-y-1 text-sm">
+                    <li>Node 20+, MongoDB 7+, optional Docker and Ollama CLI.</li>
+                    <li>From repo root: npm install • npm run client:install • npm run dev.</li>
+                    <li>Configure env for API, Angular client, and LLM gateway (5051).</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div className="relative flex-1 min-h-[320px] overflow-hidden rounded-xl border border-amber-100 bg-gradient-to-br from-amber-50 via-white to-emerald-50 shadow-lg">
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-amber-100/40 via-transparent to-emerald-100/40" />
+            <div className="relative h-full w-full">
+              <Image 
+                src="/crochet-companion.png" 
+                alt="Crochet Companion homepage preview"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute bottom-3 right-3 text-xs text-stone-800 bg-white/80 px-3 py-1 rounded-full border border-amber-100 shadow-sm">
+                Crochet Companion preview
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
 
       {/* Game Modal */}
       <Modal 
