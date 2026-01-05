@@ -557,7 +557,7 @@ export default function Home() {
               </span>
             </div>
             <p className="text-stone-800 leading-relaxed">
-              Full-stack project that parses PDFs, URLs, and text-based crochet patterns with LLM help, lets makers follow row-by-row playback, and saves their progress. Community features include pattern sharing, images, follow/unfollow, and deletion controls for owners.
+              Full-stack project that parses PDFs, URLs, and text-based crochet patterns with LLM help, lets makers follow row-by-row playback, and saves their progress. Community features include pattern sharing, images, follow/unfollow, and deletion controls for owners. This was an experiment into creating a full project with majority AI-agent coding, adhering to a human-in-the-loop review-based coding workflow similar to modern industry pipelines.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
