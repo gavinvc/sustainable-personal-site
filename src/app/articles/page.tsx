@@ -76,73 +76,7 @@ export default function Articles() {
             </motion.div>
 
             <div className="space-y-8">
-              {/* Article - Router-Based LLM Detection */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <Card className="bg-emerald-50 border-none group hover:shadow-xl transition-all duration-300 overflow-hidden">
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-0">
-                    {/* Image Section */}
-                    <div className="lg:col-span-1 relative h-48 lg:h-auto overflow-hidden">
-                      <Image
-                        src="/flows.png"
-                        alt="Flowlet fingerprinting visualization"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-
-                    {/* Content Section */}
-                    <div className="lg:col-span-3">
-                      <CardContent className="p-8">
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex-1">
-                            <h3 className="text-2xl font-semibold mb-3 text-emerald-800 group-hover:text-emerald-700 transition-colors">
-                              When Students Chat: Router-Based Detection of Unauthorized LLM Usage
-                            </h3>
-                            <div className="flex items-center gap-4 text-sm text-slate-600 mb-4 flex-wrap">
-                              <div className="flex items-center gap-1">
-                                <Calendar className="h-4 w-4" />
-                                <span>December 2025</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <Users className="h-4 w-4" />
-                                <span>CS 7457 — Computer Networks, University of Virginia</span>
-                              </div>
-                            </div>
-                          </div>
-                          <ExternalLink className="h-6 w-6 text-emerald-600 group-hover:text-emerald-700 transition-colors flex-shrink-0 mt-1" />
-                        </div>
-
-                        <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                          Final report detailing our flowlet-based fingerprinting pipeline for spotting ChatGPT, Gemini, and Claude queries on encrypted eduroam routers without decrypting payloads. We captured over 2.8M packets, engineered statistical features, and trained Random Forest, XGBoost, and SVM models that reached 85%–97% accuracy with high precision so administrators can confidently tie browser timestamps to network identities.
-                        </p>
-
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {["Network Security", "LLM Detection", "Flowlet Analysis", "Random Forest"].map((tag) => (
-                            <span key={tag} className="bg-emerald-200 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        <a
-                          href="/latex_networks_project_final.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                        >
-                          <span>Read Full Paper</span>
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </CardContent>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
+            
 
               {/* Article - CS 6762 Final Project Report */}
               <motion.div
