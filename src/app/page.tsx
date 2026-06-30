@@ -187,9 +187,9 @@ export default function Home() {
                 🌍 About Me
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                I&apos;m a fourth year student at the University of Virginia studying
-                computer science with a focus in cybersecurity. I have a passion for sustainability
-                and intern experience in software development for security applications. In my free time,
+                I&apos;m a recent graduate from the University of Virginia with a degree in
+                computer science and a focus in cybersecurity. I have a passion for sustainability
+                and job experience in software development for security applications. In my free time,
                 I enjoy volunteering, crocheting, playing music, and exploring national parks - especially
                 Shenandoah!
               </p>
